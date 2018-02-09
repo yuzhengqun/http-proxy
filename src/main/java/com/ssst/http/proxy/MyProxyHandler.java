@@ -20,6 +20,8 @@ public class MyProxyHandler implements HttpRequestHandler {
 
 	public void handle(HttpRequest request, HttpResponse response,
 			HttpContext context) throws HttpException, IOException {
+		String uri = request.getRequestLine().getUri();
+		logger.info("uri:" + uri);
 		String host = this.getHost(request);
 		String domainName = this.getDomainName(host);
 		String serverPort = this.getServerPort(host);
